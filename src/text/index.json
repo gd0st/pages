@@ -1,0 +1,21 @@
+{
+    "projects": [
+        {
+        "title": "Kadeu",
+        "description": "A framework for developing flashcard testing system with a focus on a serialized data formats.",
+        "langs": ["rust"],
+        "frameworks": [],
+        "hypertext": "https://github.com/gd0st/kadeu"
+        },
+        {
+        "title": "pages",
+        "description": "This website!",
+        "langs": ["js", "html", "css"],
+        "frameworks": ["astro"],
+        "hypertext": "https://github.com/gd0st/pages"
+        }
+    ],
+    "layout": {
+        "navLinks": ["blog"]
+    }
+}

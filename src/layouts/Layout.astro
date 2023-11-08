@@ -1,0 +1,84 @@
+---
+  //TODO rename to config.json and move somewhere idk??
+  import Index from "../text/index.json"
+  const { title } = Astro.props;
+  const { navLinks } = Index.layout;
+---
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    <head>
+
+    <body>
+        <h1>{title}</h1>
+        <div class="">
+            <nav>
+                <ul>
+                    <li><a href="/">home</a></li>
+                    {navLinks.map(link => <li><a href={'/' + link}>{link}</a></li>)}
+                </ul>
+            </nav>
+            <article>
+                <slot />
+            <article>
+        </div>
+    </body>
+</html>
+
+<style>
+   * {
+       background-color: #262c35;
+       color: white;
+   }
+   h1 {
+       text-align: center;
+   }
+
+   div {
+       width: 25em;
+       margin: 0 auto;
+       padding: 2em;
+   }
+   div article {
+       border: none 2px white;
+       border-style: solid none solid none;
+   }
+
+   li {
+       font-size: 150%;
+       list-style: none;
+       display: inline-block;
+       padding: 0 5px;
+   }
+   a {
+       text-decoration: none;
+       display: inline-block;
+       color: white;
+       font-family: 'Caparismo';
+       padding: 2px;
+   }
+   @font-family {
+       font-family: 'Caparismo';
+       src: url('/fonts/Caprasimo-Regular.ttf') format('tff');
+       font-weight: normal;
+       font-style: normal;
+       font-display: swap;
+   }
+   a:hover {
+       background-color: white;
+       color: #262c35;
+   }
+
+   ul {
+       text-align: center;
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+
+</style>

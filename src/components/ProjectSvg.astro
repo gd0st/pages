@@ -1,0 +1,28 @@
+---
+interface ProjectSvg {
+  id: string,
+  theme: string,
+}
+
+const { id, theme = "dark" } = Astro.props;
+let filename = id + '.svg';
+---
+
+<img src={filename} alt={id} class={theme}/>
+
+<style>
+   img {
+       height: 15px;
+       width: 15px;
+       padding: 0;
+   }
+
+   .dark {
+       filter: invert(100%);
+       color: white;
+   }
+   .light {
+       filter: invert(0%);
+       color: black;
+   }
+</style>

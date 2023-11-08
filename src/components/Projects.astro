@@ -1,0 +1,54 @@
+---
+import ProjectSvg from "./ProjectSvg.astro"
+interface Project {
+    title: string,
+    description: string,
+    frameworks: string[],
+    langs: string[],
+    hypertext: string,
+
+}
+let { title, description, frameworks, langs, hypertext } = Astro.props.project;
+---
+
+<div class="">
+    <a href={hypertext}><h2>{title}</h2></a>
+    <ul class="">
+        {langs.map((lang: string)=> <li><ProjectSvg id={lang}/></li>)}
+    </ul>
+    <ul>
+        {frameworks.map((framework: string)=> <li><ProjectSvg id={framework}/></li>)}
+    </ul>
+</div>
+
+<p>{description}</p>
+
+<style>
+   h2 {
+       display: inline;
+   }
+   ul, ul li {
+       display: inline;
+       padding: 0;
+       list-style: none;
+       margin: 2px;
+   }
+   a {
+       text-decoration: none;
+       color: white;
+       font-family: 'Caparismo';
+       padding: 4px;
+   }
+   a:hover {
+       background-color: white;
+       color: #262c35;
+   }
+
+   @font-family {
+       font-family: 'Caparismo';
+       src: url('/fonts/Caprasimo-Regular.ttf') format('tff');
+       font-weight: normal;
+       font-style: normal;
+       font-display: swap;
+   }
+</style>
