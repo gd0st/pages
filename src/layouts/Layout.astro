@@ -15,7 +15,9 @@
     <head>
 
     <body>
-        <h1>{title}</h1>
+        <div>
+            <h1>{title}</h1>
+        </div>
         <div class="">
             <nav>
                 <ul>
@@ -37,16 +39,20 @@
    }
    h1 {
        text-align: center;
+       margin: 0;
+   }
+   nav {
+       margin: 0;
    }
 
    div {
-       width: 25em;
+       width: 75%;
        margin: 0 auto;
        padding: 2em;
    }
    div article {
-       border: none 2px white;
-       border-style: solid none solid none;
+       border: solid 2px white;
+       border-style: none none none none;
    }
 
    li {

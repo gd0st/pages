@@ -1,5 +1,6 @@
 ---
 import ProjectSvg from "./ProjectSvg.astro"
+import { Image } from "astro:assets";
 interface Project {
     title: string,
     description: string,
@@ -11,17 +12,19 @@ interface Project {
 let { title, description, frameworks, langs, hypertext } = Astro.props.project;
 ---
 
-<div class="">
-    <a href={hypertext}><h2>{title}</h2></a>
-    <ul class="">
-        {langs.map((lang: string)=> <li><ProjectSvg id={lang}/></li>)}
-    </ul>
-    <ul>
-        {frameworks.map((framework: string)=> <li><ProjectSvg id={framework}/></li>)}
-    </ul>
-</div>
+<a href={hypertext}>
+    <button>
+        <h2>{title}</h2>
+        <ul class="">
+            {langs.map((lang: string)=> <li><ProjectSvg id={lang}/></li>)}
+        </ul>
+        <ul>
+            {frameworks.map((framework: string)=> <li><ProjectSvg id={framework}/></li>)}
+        </ul>
+        <p>{description}</p>
+    </button>
+</a>
 
-<p>{description}</p>
 
 <style>
    h2 {
@@ -33,16 +36,28 @@ let { title, description, frameworks, langs, hypertext } = Astro.props.project;
        list-style: none;
        margin: 2px;
    }
-   a {
-       text-decoration: none;
+
+   button {
+       cursor: pointer;
+       text-align: left;
+       width: 100%;
+       background-color: #262c35;
+       border: solid white 1px;
        color: white;
-       font-family: 'Caparismo';
-       padding: 4px;
+       margin: 10px 0;
    }
-   a:hover {
-       background-color: white;
-       color: #262c35;
+   .dark, img {
+       filter: invert(100%);
+       color: white;
    }
+   .light {
+       filter: invert(0%);
+       color: black;
+   }
+   button:hover {
+       background-color: #262c45;
+   }
+
 
    @font-family {
        font-family: 'Caparismo';
